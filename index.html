@@ -1,0 +1,238 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Exploring the Integration of Speech Separation and Recognition with Self-Supervised
+Learning Representation</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+      
+      
+      <!-- <link rel="shortcut icon" href="../../images/taco.png"> -->
+      <script>
+         function play(path) {{
+           var player = document.getElementById('player');
+           player.src = path;
+           player.play();
+         }}
+      </script>
+      <style>
+         .audio-cell {
+         /* Center audio widgets in the table cell. */
+         text-align: center;
+         padding-bottom: 1px;
+         padding-top: 1px;
+         }
+         .audio-cell-padded {
+         text-align: center;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         }
+         .audio-header {
+         /* Don't wrap header text. */
+         white-space: nowrap;
+         /* Some breaking space between headers for readability. */
+         padding-right: 5px;
+         padding-left: 5px;
+         }
+         .reference-cell {
+         /* For uniformity and to wrap long reference text, limit the reference cell's width. */
+         width: 25%;
+         padding-top: 20px;
+         padding-bottom: 20px;
+         }
+         .sample audio {
+         vertical-align: middle;
+         padding-left: 3px;
+         padding-right: 3px;
+         }
+         .round-button {
+         box-sizing: border-box;
+         display:block;
+         width:30px;
+         height:30px;
+         padding-top: 8px;
+         padding-left: 3px;
+         line-height: 6px;
+         border: 1.2px solid #000;
+         border-radius: 50%;
+         color: #000;
+         text-align:center;
+         background-color: rgba(0,0,0,0.00);
+         font-size:6px;
+         box-shadow: 0px 0px 2px rgba(0,0,0,1);
+         transition: all 0.2s ease;
+         }
+         .round-button:hover {
+         background-color: rgba(0,0,0,0.0);
+         box-shadow: 0px 0px 4px rgba(0,0,0,1);
+         }
+         .round-button:active {
+         background-color: rgba(0,0,0,0.01);
+         box-shadow: 0px 0px 1px rgba(0,0,0,1);
+         }
+      </style>
+   </head>
+
+   <body>
+     <div class="main">
+       <article>
+         <header>
+            <h1>Exploring the Integration of Speech Separation and Recognition with Self-Supervised
+Learning Representation[<a href="">paper</a>]</h1>
+         </header>
+      </article>
+      <div>
+      </div>
+
+       <p><b>Published in</b>: Submitted to WASPAA 2023.
+
+      <h2>
+        Contents:
+      </h2>
+      <p>
+  <a href="#chime">Spatialized WSJ0-2mix Anechoic Examples</a><br>
+  <a href="#reverb">Spatialized WSJ0-2mix Reverberant Examples</a><br>
+  <a href="#references">References (TF-GridNet)</a><br>
+      </p>
+
+  <h2 id="chime">Spatialized WSJ0-2mix Anechoic Examples</h2>
+
+  <a href="#ex1">Eval Set: mix_050a0501_1.7783_442o030z_-1.7783.wav</a><br>
+
+  <h3 id="ex1">Eval Set: mix_050a0501_1.7783_442o030z_-1.7783.wav</h3>
+  <table style="width:100%">
+    <tr>
+        <td align="left"> 
+		<b>Input Mixture (Channel 0)</b><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/mix_050a0501_1.7783_442o030z_-1.7783.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/mix_050a0501_1.7783_442o030z_-1.7783.wav"></audio>
+        </td>
+      <tr>
+        <td align="left">
+		<b>Oracle Source spk1 (Channel 0)</b><br />
+  		<b>Oracle transcript for spk1: </b><I>the female produces a litter of two to four young in november and december.</I><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/oracle/spk1_050a0501_1.7783_442o030z_-1.7783.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/oracle/spk1_050a0501_1.7783_442o030z_-1.7783.wav"></audio>
+        <td align="left">
+		<b>Oracle Source spk2 (Channel 0)</b><br />
+  		<b>Oracle transcript for spk2: </b><I>when its initial public offering is completed ,comma ashland is expected to retain a forty six percent stake .period.</I><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/oracle/spk2_050a0501_1.7783_442o030z_-1.7783.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/oracle/spk2_050a0501_1.7783_442o030z_-1.7783.wav"></audio>
+        </p>
+        </td>
+
+      <tr>
+        <td align="left">
+		<b>TF-GridNet (WavLM ASR), spk1 Source (Channel 0)</b><br />
+  		<b>Predicted transcript for spk1: </b><I>the female produces a litter of two to four young in <span style="color:red"> HERE     BUREN </span> december.</I><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/without_finetuning/spk1_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/without_finetuning/spk1_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.wav"></audio>
+
+        <td align="left">
+		<b>TF-GridNet (WavLM ASR), spk2 Source (Channel 0)</b><br />
+  		<b>Predicted transcript for spk2: </b><I><span style="color:red"> FEW  MINUTES' INDITIAL </span> public offering is  <span style="color:red"> CREATED IN        NOVEMBER </span> ashland is expected to retain a forty six percent stake .period.</I><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/without_finetuning/spk2_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/without_finetuning/spk2_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.wav"></audio>
+        </p>
+        </td>
+      <tr>
+        <td align="left"> 
+		<b>TF-GridNet + Joint Training (WavLM ASR), spk1 Source (Channel 0)</b><br />
+  		<b>Predicted transcript for spk1: </b><I>the female produces a litter of two to four young in november and december.</I><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/with_finetuning/spk1_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/with_finetuning/spk1_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.wav"></audio>
+
+        <td align="left">
+		<b>TF-GridNet + Joint Training (WavLM ASR), Predicted Source for spk2 (Channel 0)</b><br />
+  		<b>Predicted transcript for spk2: </b><I>when its initial public offering is completed ,comma ashland is expected to retain a forty six percent stake .period.</I><br />
+        <p style="text-align: center">
+          <img src="examples/anechoic/with_finetuning/spk2_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/anechoic/with_finetuning/spk2_050_442_050a0501_1.7783_442o030z_-1.7783_anechoic.wav"></audio>
+        </p>
+        </td>
+    </tr>
+  </table>
+  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+  <h2 id="reverb">Spatialized WSJ0-2mix Reverberant Examples</h2>
+
+  <a href="#ex1">Eval Set: mix_050a050j_1.2216_22ga0109_-1.2216.wav</a><br>
+
+  <h3 id="ex1">Eval Set: mix_050a050j_1.2216_22ga0109_-1.2216.wav</h3>
+  <table style="width:100%">
+    <tr>
+        <td align="left">
+		<b>Input Mixture (Channel 0)</b><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/mix_050a050j_1.2216_22ga0109_-1.2216.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/mix_050a050j_1.2216_22ga0109_-1.2216.wav"></audio>
+        </td>
+      <tr>
+        <td align="left">
+		<b>Oracle Source spk1 (Channel 0)</b><br />
+  		<b>Oracle transcript for spk1: </b><I>he is a major figure among writers who break away from the american tradition of realism.</I><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/oracle/spk1_050a050j_1.2216_22ga0109_-1.2216.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/oracle/spk1_050a050j_1.2216_22ga0109_-1.2216.wav"></audio>
+        <td align="left">
+		<b>Oracle Source spk2 (Channel 0)</b><br />
+  		<b>Oracle transcript for spk2: </b><I>origins or causes of spontaneous mutation are not yet completely clear.</I><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/oracle/spk2_050a050j_1.2216_22ga0109_-1.2216.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/oracle/spk2_050a050j_1.2216_22ga0109_-1.2216.wav"></audio>
+        </p>
+        </td>
+
+      <tr>
+        <td align="left">
+		<b>TF-GridNet (WavLM ASR), spk1 Source (Channel 0)</b><br />
+  		<b>Predicted transcript for spk1: </b><I>he is a major figure among writers who break away from the american tradition of realism.</I><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/without_finetuning/spk1_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/without_finetuning/spk1_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.wav"></audio>
+
+        <td align="left">
+		<b>TF-GridNet (WavLM ASR), spk2 Source (Channel 0)</b><br />
+  		<b>Predicted transcript for spk2: </b><I><span style="color:red">  ORANGINES </span> or <span style="color:red">  PAUSES </span> of spontaneous mutation are not yet completely clear.</I><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/without_finetuning/spk2_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/without_finetuning/spk2_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.wav"></audio>
+        </p>
+        </td>
+      <tr>
+        <td align="left">
+		<b>TF-GridNet + Joint Training (WavLM ASR), spk1 Source (Channel 0)</b><br />
+  		<b>Predicted transcript for spk1: </b><I>he is a major figure among writers who break away from the american tradition of realism.</I><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/with_finetuning/spk1_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/with_finetuning/spk1_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.wav"></audio>
+
+        <td align="left">
+		<b>TF-GridNet + Joint Training (WavLM ASR), Predicted Source for spk2 (Channel 0)</b><br />
+  		<b>Predicted transcript for spk2: </b><I>origins or causes of spontaneous mutation are not yet completely clear.</I><br />
+        <p style="text-align: center">
+          <img src="examples/reverb/with_finetuning/spk2_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.png" width="600" alt=""/> <br />
+          <audio controls=""><source src="examples/reverb/with_finetuning/spk2_050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb.wav"></audio>
+        </p>
+        </td>
+    </tr>
+  </table>
+  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+  <h3 id="references">References:</h3>
+         <p>
+  		[1] Wang, Z. Q., Cornell, S., Choi, S., Lee, Y., Kim, B. Y., & Watanabe, S. (2022). TF-GridNet: Making time-frequency domain models great again for monaural speaker separation. arXiv preprint arXiv:2209.03952.[<a href="https://arxiv.org/abs/2209.03952">paper</a>] <br>
+        [2] Wang, Z. Q., Cornell, S., Choi, S., Lee, Y., Kim, B. Y., & Watanabe, S. (2022). TF-GridNet: Integrating Full-and Sub-Band Modeling for Speech Separation. arXiv preprint arXiv:2211.12433.[<a href="https://arxiv.org/abs/2211.12433">paper</a>]
+         </p>
+
+</div>
+</body>
+</html>

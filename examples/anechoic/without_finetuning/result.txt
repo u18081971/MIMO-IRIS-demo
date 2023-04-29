@@ -1,0 +1,12 @@
+Speaker sentences  11:  050_442   #utts: 18
+id: (050_442-050_442_050a0501_1.7783_442o030z_-1.7783_anechoic-1)
+Scores: (#C #S #D #I) 12 2 0 0
+REF:  the female produces a litter of two to four young in NOVEMBER AND   december 
+HYP:  the female produces a litter of two to four young in HERE     BUREN december 
+Eval:                                                      S        S              
+
+id: (050_442-050_442_050a0501_1.7783_442o030z_-1.7783_anechoic-2)
+Scores: (#C #S #D #I) 14 5 0 1
+REF:  WHEN ITS      INITIAL  public offering is ******* COMPLETED ,COMMA   ashland is expected to retain a forty six percent stake .period 
+HYP:  FEW  MINUTES' INDITIAL public offering is CREATED IN        NOVEMBER ashland is expected to retain a forty six percent stake .period 
+Eval: S    S        S                           I       S         S                                                                        

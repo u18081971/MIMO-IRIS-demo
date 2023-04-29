@@ -1,0 +1,11 @@
+id: (050_22g-050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb-1)
+Scores: (#C #S #D #I) 16 0 0 0
+REF:  he is a major figure among writers who break away from the american tradition of realism 
+HYP:  he is a major figure among writers who break away from the american tradition of realism 
+Eval:                                                                                          
+
+id: (050_22g-050_22g_050a050j_1.2216_22ga0109_-1.2216_reverb-2)
+Scores: (#C #S #D #I) 9 2 0 0
+REF:  ORIGINS   or CAUSES of spontaneous mutation are not yet completely clear 
+HYP:  ORANGINES or PAUSES of spontaneous mutation are not yet completely clear 
+Eval: S            S                                                           
